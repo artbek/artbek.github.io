@@ -1,0 +1,96 @@
+body {
+	font-family: 'Source Code Pro', monospace;
+	font-size: 16px;
+	width: 100%;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+	color: #444444;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #444444;
+}
+
+a:active {
+	color: #444444;
+}
+
+.pagewidth {
+	margin: 2em auto;
+	max-width: 760px;
+	padding: 0em 1em;
+}
+
+article {
+	border: 1px solid #dddddd;
+	border-top: 6px solid #778888;
+	margin: 2em auto;
+	padding: 0 2em;
+	position: relative;
+	text-align: left;
+}
+
+article h4 {
+	color: #888888;
+	font-size: 0.8em;
+	margin: 1.5em 0 2em 0;
+	text-align: left;
+	line-height: 1.2em;
+}
+
+article h2 {
+	color: #222222;
+	font-size: 2.2em;
+	line-height: 1.2em;
+}
+
+article h6 {
+	color: #888888;
+	font-size: 0.8em;
+	margin: 2em 0 1.5em 0;
+	text-align: right;
+	line-height: 1.2em;
+}
+
+article p {
+	color: #666666;
+	margin: 1.5em 0 2em 0;
+	font-size: 1.1em;
+	line-height: 1.2em;
+}
+
+article li {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJ0lEQVQoU2NkIBIwEqmOAa6wvKPjP0hTZ0UFWAydT7pCQk4YVm4EAI1gIAtPnQKlAAAAAElFTkSuQmCC");
+	margin: 2em 0;
+}
+
+.wrapper {
+	text-align: center;
+}
+
+.f-l {
+	float: left;
+	width: auto;
+}
+
+.f-r {
+	float: right;
+	width: auto;
+}
+
+nav {
+	font-weight: bold;
+	padding: 0 0.5em;
+	position: relative;
+}
+
+footer {
+	color: #444444;
+	margin-top: 3em;
+	padding: 1em 0.2em;
+	font-size: 1em;
+}
+
+

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<article>
+
+	<h4>{{ page.backstory }}</h4>
+	<h2>{{ page.title }}</h2>
+
+	{{ content }}
+
+	<h6>{{ page.date | date: '%d %B %Y' }}</h6>
+
+</article>
+
+
+<nav>
+	{% if page.next %}
+		<a href="{{ page.next.url }}" class="f-l">&lt;&lt; Newer</a>
+	{% endif %}
+	{% if page.previous %}
+		<a href="{{ page.previous.url }}" class="f-r">Older &gt;&gt;</a>
+	{% endif %}
+	<br style="clear: both" />
+</nav>
+
