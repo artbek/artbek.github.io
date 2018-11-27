@@ -6,10 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="HandheldFriendly" content="True">
 
-		<title>{{ site.title }}</title>
+		<title>{{ site.title }} | {{ page.title | default: "Home" }}</title>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129656233-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'UA-129656233-1');
+		</script>
 
 		<link href='https://fonts.googleapis.com/css?family=Cutive+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'>
-		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico?20181122" />
 		<link rel="stylesheet" href="/assets/css/reset.css" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
   </head>
@@ -17,11 +26,41 @@
 	<body>
 		<div class="pagewidth wrapper">
 
+
 			<a href="/">
 				<img src="/assets/img/logo.png" width="100" />
 			</a>
+			<span style="font-size: 0.6em">{{ site.posts | size }}</span>
 
-			{{ content }}
+			{% for post in site.posts %}
+
+				{% if page.id == post.id %}
+
+					<a name="{{ post.id }}" id="{{ post.id }}"></a>
+					<article class="active" style="text-align: {{ page.textalign | default: "left" }}">
+						<h4>{{ page.backstory }}</h4>
+						<h2>{{ page.title }}</h2>
+
+						{{ content }}
+
+						<h6>{{ page.date | date: '%d %B %Y' }}</h6>
+					</article>
+
+				{% else %}
+
+					<article>
+						<h2>{{ post.title }}</h2>
+
+						<p>
+							<a href="{{ post.url }}#{{ post.id }}">Read more...</a>
+						</p>
+
+						<h6>{{ post.date | date: '%d %B %Y' }}</h6>
+					</article>
+
+				{% endif %}
+
+			{% endfor %}
 
 			<footer>
 				<a href="mailto:bart@artbek.co.uk">bart@artbek.co.uk</a>

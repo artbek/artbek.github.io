@@ -5,16 +5,20 @@ body {
 }
 
 a, a:hover, a:visited, a:link, a:active {
-	color: #444444;
+	color: #223333;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #444444;
+	color: #223333;
 }
 
 a:active {
-	color: #444444;
+	color: #223333;
+}
+
+.artwork_source {
+	font-size: 0.6em;
 }
 
 .pagewidth {
@@ -25,15 +29,19 @@ a:active {
 
 article {
 	border: 1px solid #dddddd;
-	border-top: 6px solid #778888;
+	border-top: 5px solid #889999;
 	margin: 2em auto;
 	padding: 0 2em;
 	position: relative;
 	text-align: left;
 }
 
+article.active {
+	border-top: 10px solid #334444;
+}
+
 article h4 {
-	color: #888888;
+	color: #999999;
 	font-size: 0.8em;
 	margin: 1.5em 0 2em 0;
 	text-align: left;
@@ -41,13 +49,14 @@ article h4 {
 }
 
 article h2 {
-	color: #222222;
+	color: #223333;
 	font-size: 2.2em;
 	line-height: 1.2em;
+	margin: 0.8em 0 0.5em 0;
 }
 
 article h6 {
-	color: #888888;
+	color: #778888;
 	font-size: 0.8em;
 	margin: 2em 0 1.5em 0;
 	text-align: right;
@@ -55,7 +64,7 @@ article h6 {
 }
 
 article p {
-	color: #666666;
+	color: #556666;
 	margin: 1.5em 0 2em 0;
 	font-size: 1.1em;
 	line-height: 1.2em;
@@ -92,5 +101,3 @@ footer {
 	padding: 1em 0.2em;
 	font-size: 1em;
 }
-
-
