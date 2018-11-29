@@ -4,17 +4,22 @@ body {
 	width: 100%;
 }
 
-a, a:hover, a:visited, a:link, a:active {
+a,
+a:hover,
+a:visited,
+a:link,
+a:active {
 	color: #223333;
 	text-decoration: none;
 }
 
-a:hover {
-	color: #223333;
-}
-
-a:active {
-	color: #223333;
+.active-scroll-up a,
+.active-scroll-up a:hover,
+.active-scroll-up a:visited,
+.active-scroll-up a:link,
+.active-scroll-up a:active {
+	color: #aaaaaa;
+	text-decoration: none;
 }
 
 .artwork_source {
@@ -40,6 +45,10 @@ article.active {
 	border-top: 10px solid #334444;
 }
 
+article.active-scroll-up {
+	border-top: 10px solid #eeeeee;
+}
+
 article h4 {
 	color: #999999;
 	font-size: 0.8em;
@@ -48,11 +57,16 @@ article h4 {
 	line-height: 1.2em;
 }
 
+
 article h2 {
 	color: #223333;
 	font-size: 2.2em;
 	line-height: 1.2em;
 	margin: 0.8em 0 0.5em 0;
+}
+
+article.active-scroll-up h2 {
+	color: #dddddd;
 }
 
 article h6 {
@@ -61,6 +75,10 @@ article h6 {
 	margin: 2em 0 1.5em 0;
 	text-align: right;
 	line-height: 1.2em;
+}
+
+article.active-scroll-up h6 {
+	color: #dddddd;
 }
 
 article p {

@@ -20,28 +20,44 @@
 		<link href='https://fonts.googleapis.com/css?family=Cutive+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="/favicon.ico?20181122" />
 		<link rel="stylesheet" href="/assets/css/reset.css?20181127" />
-		<link rel="stylesheet" href="/assets/css/main.css?20181127" />
+		<link rel="stylesheet" href="/assets/css/main.css?20181129" />
   </head>
 
 	<body>
 		<div class="pagewidth wrapper">
-
 
 			<a href="/">
 				<img src="/assets/img/logo.png" width="100" />
 			</a>
 			<span style="font-size: 0.6em">{{ site.posts | size }}</span>
 
+			{% if page.id %}
+
+				<a name="active_article" id="active_article"></a>
+				<article class="active" style="text-align: {{ page.textalign | default: "left" }}">
+					<h4>{{ page.backstory }}</h4>
+					<h2>{{ page.title }}</h2>
+
+					{{ content }}
+
+					<h6>{{ page.date | date: '%d %B %Y' }}</h6>
+				</article>
+
+				<hr style="border-top: 1px dashed #222222; margin: 2.6em 0;" />
+
+			{% endif %}
+
+
 			{% for post in site.posts %}
 
 				{% if page.id == post.id %}
 
-					<a name="{{ post.id }}" id="{{ post.id }}"></a>
-					<article class="active" style="text-align: {{ page.textalign | default: "left" }}">
-						<h4>{{ page.backstory }}</h4>
+					<article class="active-scroll-up" style="text-align: {{ page.textalign | default: "left" }}">
 						<h2>{{ page.title }}</h2>
 
-						{{ content }}
+						<p>
+							<a href="#active_article">Scroll up...</a>
+						</p>
 
 						<h6>{{ page.date | date: '%d %B %Y' }}</h6>
 					</article>
@@ -52,7 +68,7 @@
 						<h2>{{ post.title }}</h2>
 
 						<p>
-							<a href="{{ post.url }}#{{ post.id }}">Read more...</a>
+							<a href="{{ post.url }}">Read more...</a>
 						</p>
 
 						<h6>{{ post.date | date: '%d %B %Y' }}</h6>
