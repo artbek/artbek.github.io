@@ -1,2 +1,5 @@
-bart@artbek.co.uk
+---
+layout: page
+permalink: /about.html
+---
 

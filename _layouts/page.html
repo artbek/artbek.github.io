@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="HandheldFriendly" content="True">
 
-		<title>artbek | Home</title>
+		<title>{{ site.title }} | {{ page.title | default: "Home" }}</title>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129656233-1"></script>
@@ -32,27 +32,7 @@
 				<img src="/assets/img/logo.png" alt="ARTBEK" width="100" />
 			</a>
 
-			<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
-
+			{{ content }}
 
 			<footer>
 				<a href="mailto:bart@artbek.co.uk">bart@artbek.co.uk</a>
