@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="HandheldFriendly" content="True">
+
+		<title>Count Your Kanji</title>
+
+		<link rel="stylesheet" href="/assets/css/reset.css" />
+
+		<style>
+
+			body {
+				font-size: 16px;
+				width: 100%;
+			}
+
+			.wrapper {
+				padding: 2em;
+			}
+
+			.left_col {
+				width: 50%;
+				float: left;
+				padding-bottom: 1.5em;
+			}
+
+			.right_col {
+				width: 48%;
+				float: right;
+				padding-bottom: 1.5em;
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 1.5em;
+				text-transform: uppercase;
+				padding-bottom: 1em;
+			}
+
+			h1 em {
+				color: #cc6666;
+			}
+
+			#input_text {
+				font-size: 0.8em;
+				width: 95%;
+			}
+
+			ol {
+				display: block;
+				list-style-type: decimal;
+				padding-inline-start: 40px;
+			}
+
+			li {
+				color: #ccbbbb;
+				line-height: 1.6em;
+			}
+
+			li kanji {
+				font-style: normal;
+				color: #cc6666;
+				font-size: 1.4em;
+			}
+
+			li freq {
+				font-style: normal;
+				color: #333333;
+				font-size: 1.4em;
+			}
+
+			button#count_button {
+				padding: 1em 2em;
+				background-color: #cc6666;
+				border: none;
+				color: #f9f9f9;
+				cursor: pointer;
+				font-weight: bold;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+
+			<h1>Count your <em>Kanji</em></h1>
+
+			<div class="left_col">
+				<textarea id="input_text" rows="25">漢字
+漢字
+漢字
+漢</textarea>
+				<br />
+				<button id="count_button" label-default="Count" label-progress="Counting...">Count</button>
+			</div>
+			<div class="right_col">
+				<ol id="output_stats" reversed="reversed"></ol>
+			</div>
+
+		</div>
+
+	</body>
+
+	<script>
+
+
+		document.getElementById("count_button").onclick = function() {
+
+			// Reset
+
+			document.getElementById("output_stats").innerHTML = "...";
+			document.getElementById("count_button").innerHTML = document.getElementById("count_button").getAttribute('label-progress');
+
+
+			// Count and Sort
+
+			var kanji = [];
+			var input_text = document.getElementById("input_text").value;
+			for (var i in input_text) {
+				var char_code = input_text.charCodeAt(i);
+
+				if (char_code < 0x4e00 || char_code > 0x9faf) continue; // kanji only
+
+				if (kanji[char_code] === undefined) {
+					kanji[char_code] = {
+						character: input_text.charAt(i),
+						freq: 0
+					};
+				}
+
+				kanji[char_code].freq++;
+			}
+
+			kanji.sort(function(a, b) { return b.freq - a.freq });
+
+
+			// Display sorted results
+
+			var output_html = "";
+			for (var i in kanji) {
+				output_html += ""
+					+ "<li>"
+					+ "<kanji>" + kanji[i].character + "</kanji>"
+					+ " | "
+					+ "<freq>" + kanji[i].freq + "</freq>"
+					+ "</li>"
+				;
+			}
+
+			setTimeout(function() { // visual feedback
+				document.getElementById("output_stats").innerHTML = output_html;
+				document.getElementById("count_button").innerHTML = document.getElementById("count_button").getAttribute('label-default');
+			}, 300);
+
+			document.getElementById("input_text").focus(); // for convenience
+		}
+
+
+		// Click on load to demonstrate
+
+		document.getElementById("count_button").click();
+
+	</script>
+</html>
+
